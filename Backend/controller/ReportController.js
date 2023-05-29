@@ -105,3 +105,10 @@ exports.downloadPdf = catchAsync(async (req, res) => {
     }
   });
 });
+
+exports.uploadFile = (req, res) => {
+  console.log('reviewing file....', req.file);
+  req.file
+    ? res.json({ success: true, message: 'file saved...' })
+    : res.json({ success: false, message: 'file already exists...' });
+};
